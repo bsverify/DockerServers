@@ -1,0 +1,13 @@
+version: '2'
+services:
+  oracle12c:
+    image: truevoly/oracle-12c
+    environment:
+      DBCA_TOTAL_MEMORY: 16192
+    #volumes:
+     # - ${MYSQL_DIR}:/u01/app/oracle
+    privileged: true
+    ports:
+      - "1521:1521"
+    restart:
+      always

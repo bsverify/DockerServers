@@ -1,0 +1,17 @@
+# docker-compose.yml文件的版本
+version: "3"
+# 管理的服务
+services:
+  mongo-db:
+    image: mongo:4.2.3
+    container_name: mongo-db
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ${MONGO_DIR}/db:/data/db
+      # - ${MONGO_DIR}/localtime:/etc/localtime
+    environment:
+      TZ: ${TZ}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
